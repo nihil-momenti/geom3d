@@ -1,15 +1,12 @@
 module Geom3d
   class Point
+    attr_accessor :x, :y, :z
     def initialize(*args)
-      @coords = args.flatten.dup
+      @x, @y, @z = args.flatten
     end
 
-    def x; @coords[0]; end
-
-    def y; @coords[1]; end
-
-    def z; @coords[2]; end
-
-    def [] index; @coords[index]; end
+    def [] index
+      [@x, @y, @z][index]
+    end
   end
 end
