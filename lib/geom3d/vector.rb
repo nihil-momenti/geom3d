@@ -36,8 +36,8 @@ module Geom3d
       Vector.new(-@dx, -@dy, -@dz)
     end
 
-    def ==
-      abs(@dx - other.dx) < EPS && abs(@dy - other.dy) < EPS && abs(@dz -  other.dz) < EPS
+    def == other
+      (@dx - other.dx).abs < EPS && (@dy - other.dy).abs < EPS && (@dz -  other.dz).abs < EPS
     end
 
     def dot other
@@ -55,7 +55,7 @@ module Geom3d
     end
 
     def length
-      sqrt(self.dot self)
+      self.dot(self).sqrt
     end
 
     def to_s
