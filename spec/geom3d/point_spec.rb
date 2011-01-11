@@ -10,13 +10,9 @@ module Geom3d
         @point = Point.new(@x, @y, @z)
       end
 
-      [[:x, 0], [:y, 1], [:z, 2]].each do |axis, index|
+      [:x, :y, :z].each do |axis|
         it "allows accessing the #{axis} co-ordinate via the name" do
           eval "@point.#{axis}.should == @#{axis}"
-        end
-
-        it "allows accessing the #{axis} co-ordinate via the index" do
-          eval "@point[#{index}].should == @#{axis}"
         end
       end
     end
@@ -27,13 +23,9 @@ module Geom3d
         @point = Point.new([@x, @y, @z])
       end
 
-      [[:x, 0], [:y, 1], [:z, 2]].each do |axis, index|
+      [:x, :y, :z].each do |axis|
         it "allows accessing the #{axis} co-ordinate via the name" do
           eval "@point.#{axis}.should == @#{axis}"
-        end
-
-        it "allows accessing the #{axis} co-ordinate via the index" do
-          eval "@point[#{index}].should == @#{axis}"
         end
       end
     end
@@ -47,5 +39,6 @@ module Geom3d
       end
 
       it 'returns a difference vector'
+    end
   end
 end

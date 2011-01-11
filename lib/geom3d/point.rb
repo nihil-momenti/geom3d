@@ -1,3 +1,4 @@
+require 'geom3d/eps'
 require 'geom3d/vector'
 
 module Geom3d
@@ -6,10 +7,6 @@ module Geom3d
 
     def initialize *args
       @x, @y, @z = args.flatten
-    end
-
-    def [] index
-      [@x, @y, @z][index]
     end
 
     def - other
@@ -33,6 +30,15 @@ module Geom3d
 
     def to_s
       "Point3(%.3f,%.3f,%.3f)" % [@x, @y, @z]
+    end
+
+    # Allows recursive flatten and multiple assignment to work with this class
+    def to_ary
+      [@x, @y, @z]
+    end
+
+    def flatten
+      to_ary.flatten
     end
   end
 end
