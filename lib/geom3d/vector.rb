@@ -57,7 +57,7 @@ module Geom3d
     alias :unit :norm
 
     def length
-      self.dot(self).sqrt
+      Math.sqrt(self.dot(self))
     end
 
     def to_s
