@@ -1,5 +1,5 @@
 require 'geom3d/point'
-require 'geon3d/vector'
+require 'geom3d/vector'
 
 module Geom3d
   class Ray
