@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.email       = ["ghostunderscore@gmail.com"]
   s.homepage    = ""
   s.summary     = %q{A simple pure ruby 3d geometry library}
-  s.description = %q{TODO: Write a gem description}
+  s.description = %q{A simple pure ruby 3d geometry library}
   s.licenses    = ["Apache License 2.0"]
 
   s.rubyforge_project = "geom3d"
