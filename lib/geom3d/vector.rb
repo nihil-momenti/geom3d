@@ -54,6 +54,8 @@ module Geom3d
       self / self.length
     end
 
+    alias :unit :norm
+
     def length
       self.dot(self).sqrt
     end
