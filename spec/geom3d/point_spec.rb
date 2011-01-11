@@ -20,6 +20,7 @@ module Geom3d
         end
       end
     end
+
     context 'when constructed with an array' do
       before :each do
         @x, @y, @z = rand, rand, rand
@@ -36,5 +37,15 @@ module Geom3d
         end
       end
     end
+    
+    describe 'point - point' do
+      before :each do
+        @x1, @x2, @y1, @y2, @z1, @z2 = rand, rand, rand, rand, rand, rand
+        @point1 = Point.new(@x1, @y1, @z1)
+        @point2 = Point.new(@x2, @y2, @z2)
+        @result = @point2 - @point1
+      end
+
+      it 'returns a difference vector'
   end
 end
