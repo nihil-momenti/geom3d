@@ -38,7 +38,22 @@ module Geom3d
         @result = @point2 - @point1
       end
 
-      it 'returns a difference vector'
+      it 'returns a difference vector' do
+        @result.should == Vector.new(@x2 - @x1, @y2 - @y1, @z2 - @z1)
+      end
+    end
+
+    describe 'point + vector' do
+      before :each do
+        @x, @y, @z, @dx, @dy, @dz = rand, rand, rand, rand, rand, rand
+        @point = Point.new(@x, @y, @z)
+        @vector = Vector.new(@dx, @dy, @dz)
+        @result = @point + @vector
+      end
+
+      it 'returns a shifted point' do
+        @result.should == Point.new(@x + @dx, @y + @dy, @z + @dz)
+      end
     end
   end
 end
