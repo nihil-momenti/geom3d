@@ -92,7 +92,7 @@ class Fixnum
     when Geom3d::Vector
       Geom3d::Vector.new(self * other.dx, self * other.dy, self * other.dz)
     else
-      old_times.bind(self).()
+      old_times.bind(self).(other)
     end
   end
 end
@@ -105,7 +105,7 @@ class Bignum
     when Geom3d::Vector
       Geom3d::Vector.new(self * other.dx, self * other.dy, self * other.dz)
     else
-      old_times.bind(self).()
+      old_times.bind(self).(other)
     end
   end
 end
@@ -118,7 +118,7 @@ class Float
     when Geom3d::Vector
       Geom3d::Vector.new(self * other.dx, self * other.dy, self * other.dz)
     else
-      old_times.bind(self).()
+      old_times.bind(self).(other)
     end
   end
 end
