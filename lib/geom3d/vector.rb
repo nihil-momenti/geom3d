@@ -85,40 +85,40 @@ end
 
 
 class Fixnum
-  alias :times_without_geom3d :'*'
+  old_times = instance_method(:'*')
 
-  def * other
+  define_method(:'*') do |other|
     case other
     when Geom3d::Vector
       Geom3d::Vector.new(self * other.dx, self * other.dy, self * other.dz)
     else
-      self.times_without_geom3d(other)
+      old_times.bind(self).()
     end
   end
 end
 
 class Bignum
-  alias :times_without_geom3d :'*'
+  old_times = instance_method(:'*')
 
-  def * other
+  define_method(:'*') do |other|
     case other
     when Geom3d::Vector
       Geom3d::Vector.new(self * other.dx, self * other.dy, self * other.dz)
     else
-      self.times_without_geom3d(other)
+      old_times.bind(self).()
     end
   end
 end
 
 class Float
-  alias :times_without_geom3d :'*'
+  old_times = instance_method(:'*')
 
-  def * other
+  define_method(:'*') do |other|
     case other
     when Geom3d::Vector
       Geom3d::Vector.new(self * other.dx, self * other.dy, self * other.dz)
     else
-      self.times_without_geom3d(other)
+      old_times.bind(self).()
     end
   end
 end
