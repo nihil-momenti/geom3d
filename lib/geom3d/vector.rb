@@ -72,45 +72,23 @@ module Geom3d
     def flatten
       to_ary.flatten
     end
-  end
-end
 
-
-class Fixnum
-  old_times = instance_method(:'*')
-
-  define_method(:'*') do |other|
-    case other
-    when Geom3d::Vector
-      Geom3d::Vector.new(self * other.dx, self * other.dy, self * other.dz)
-    else
-      old_times.bind(self).(other)
+    def coerce num
+      case other
+      when Numeric
+        return Scalar.new(num), self
+      else
+      end
     end
-  end
-end
 
-class Bignum
-  old_times = instance_method(:'*')
+    class Scalar
+      def initialize num
+        @num = num
+      end
 
-  define_method(:'*') do |other|
-    case other
-    when Geom3d::Vector
-      Geom3d::Vector.new(self * other.dx, self * other.dy, self * other.dz)
-    else
-      old_times.bind(self).(other)
-    end
-  end
-end
-
-class Float
-  old_times = instance_method(:'*')
-
-  define_method(:'*') do |other|
-    case other
-    when Geom3d::Vector
-      Geom3d::Vector.new(self * other.dx, self * other.dy, self * other.dz)
-    else
-      old_times.bind(self).(other)
+      def * other
+        other * @num
+      end
     end
   end
 end
