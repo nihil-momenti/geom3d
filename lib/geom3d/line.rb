@@ -16,15 +16,5 @@ module Geom3d
     def to_s
       "Line(#{@p1.to_s}, #{@p2.to_s})"
     end
-
-    def to_hash
-      { :p1 => @p1.to_hash, :p2 => @ps.to_hash }
-    end
-
-    def self.from_hash hash
-      p1 = Point.from_hash(hash[:p1])
-      p2 = Point.from_hash(hash[:p2])
-      Line.new(p1, p2)
-    end
   end
 end

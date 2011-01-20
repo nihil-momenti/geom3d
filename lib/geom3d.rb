@@ -7,7 +7,3 @@
 }.each do |file|
   require file
 end
-
-module Geom3d
-  # Your code goes here...
-end

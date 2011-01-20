@@ -69,14 +69,6 @@ module Geom3d
       [@dx, @dy, @dz]
     end
 
-    def to_hash
-      { :dx => @dx, :dy => @dy, :dz => @dz }
-    end
-
-    def self.from_hash hash
-      Vector.new(hash[:dx], hash[:dy], hash[:dz])
-    end
-
     def flatten
       to_ary.flatten
     end

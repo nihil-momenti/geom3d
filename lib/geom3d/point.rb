@@ -40,13 +40,5 @@ module Geom3d
     def flatten
       to_ary.flatten
     end
-
-    def to_hash
-      { :x => @x, :y => @y, :z => @z }
-    end
-
-    def self.from_hash hash
-      Point.new(hash[:x], hash[:y], hash[:z])
-    end
   end
 end
