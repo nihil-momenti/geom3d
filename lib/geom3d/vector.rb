@@ -74,10 +74,11 @@ module Geom3d
     end
 
     def coerce num
-      case other
+      case num
       when Numeric
         return Scalar.new(num), self
       else
+        raise TypeError, "#{self.class} can't be coerced into #{num.class}"
       end
     end
 
