@@ -21,7 +21,12 @@ module Geom3d
     end
 
     def + other
-      Point.new(@x + other.dx, @y + other.dy, @z + other.dz)
+      case other
+      when Vector
+        Point.new(@x + other.dx, @y + other.dy, @z + other.dz)
+      else
+        throw ArgumentError
+      end
     end
 
     def == other
@@ -29,7 +34,7 @@ module Geom3d
     end
 
     def to_s
-      "Point3(%.3f,%.3f,%.3f)" % [@x, @y, @z]
+      "Point(%.3f,%.3f,%.3f)" % [@x, @y, @z]
     end
 
     # Allows recursive flatten and multiple assignment to work with this class
